@@ -17,20 +17,32 @@ class Menu
   end
 
   def display
+    puts "**** #{name} ****"
+    i = 1
     @foods.each do |food, info|
-      puts "#{food}: $#{info[0]} calories #{info[1]}"
+      puts "#{i}) #{food}: $#{info[0]} calories #{info[1]}"
+      i += 1
     end
   end
+
+  def add(name, price, calories)
+    @foods[name] = [price, calories]
+  end
 end
-mains = Menu.new("Main Menu", @main_dish)
-sides = Menu.new("Side Menu", @side_dish)
-deserts = Menu.new("Desert Menu", @desert_menu)
+main = Menu.new("Main Menu", @main_dish)
+side = Menu.new("Side Menu", @side_dish)
+desert = Menu.new("Desert Menu", @desert_menu)
 
-mains.display
+puts "***  Welcome to Juan a Burrito  ***"
+puts "   May I take your order please?   "
+main.display
+side.display
+desert.display
+binding.pry
 
 
-# puts "***  Welcome to Juan a Burrito  ***"
-# puts "   May I take your order please?   "
+
+
 #
 #
 # puts "1) Burrito                  $3.00"
